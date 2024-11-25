@@ -29,8 +29,11 @@
               class="form-control"
               id="siteName"
               placeholder="Bookmark Name"
+              oninput="validateBookmarkName()"
             />
           </div>
+          <p class="alert alert-danger d-none" id="namealert">site URL should start with (https://www.)</p>
+
           <div class="mb-3">
             <label for="siteURL" class="form-label fw-bold"
               ><i class="fa-solid fa-link"></i>Site URL</label
@@ -40,7 +43,7 @@
               class="form-control"
               id="siteURL"
               placeholder="Website URL"
-              oninput="validate()"
+             oninput="validateURL()"
             />
           </div>
           <p class="alert alert-danger d-none" id="URLalert">site URL should start with (https://www.)</p>
