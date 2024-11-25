@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmark</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="py-2 position-relative">Bookmarker</h1>
+      <div class="inner">
+        <h2 class="text-center mb-4"><i class="fa-solid fa-bookmark"></i>Bookmark your favorite sites<i class="fa-solid fa-bookmark"></i></h2>
+        <form>
+          <div class="mb-3">
+            <label for="siteName" class="form-label fw-bold"
+              ><i class="fa-solid fa-book-bookmark"></i>Site Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="siteName"
+              placeholder="Bookmark Name"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="siteURL" class="form-label fw-bold"
+              ><i class="fa-solid fa-link"></i>Site URL</label
+            >
+            <input
+              type="url"
+              class="form-control"
+              id="siteURL"
+              placeholder="Website URL"
+              oninput="validate()"
+            />
+          </div>
+          <p class="alert alert-danger d-none" id="URLalert">site URL should start with (https://www.)</p>
+          <div class="text-center">
+              <button class="btn-submit" onclick="addWebsite()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr class="fw-bold text-center">
+                    <td>index</td>
+                    <td>Website Name</td>
+                    <td>Visit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody class="text-center" id="containerData">
+
+
+            </tbody>
+          </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
