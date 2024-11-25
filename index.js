@@ -6,7 +6,7 @@ allData = JSON.parse(localStorage.getItem("allData")) || [];
 displayData(allData);
 
 function addWebsite() {
-  if (validate()) {
+  if (validateURL() && validateBookmarkName()) {
     var data = {
       bookmarkName: bookmarkNameInput.value,
       websiteURL: websiteURLInput.value,
@@ -60,7 +60,7 @@ function clearForm() {
   websiteURLInput.value = null;
 }
 
-function validate() {
+function validateURL() {
   if (/^(https:[/]{2}www.)[\w\.]{2,100}$/.test(websiteURLInput.value) == true) {
     URLalert.classList.add("d-none");
     websiteURLInput.classList.replace("is-invalid", "is-valid");
@@ -68,6 +68,17 @@ function validate() {
   } else {
     URLalert.classList.remove("d-none");
     websiteURLInput.classList.add("is-invalid");
+    return false;
+  }
+}
+function validateBookmarkName() {
+  if (/^[\w]{3,100}$/.test(bookmarkNameInput.value) == true) {
+    namealert.classList.add("d-none");
+    bookmarkNameInput.classList.replace("is-invalid", "is-valid");
+    return true;
+  } else {
+    namealert.classList.remove("d-none");
+    bookmarkNameInput.classList.add("is-invalid");
     return false;
   }
 }
